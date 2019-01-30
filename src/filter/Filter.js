@@ -1,5 +1,5 @@
 import React from "react";
-import HomemadeSelect from "./homemadeSelect/HomemadeSelect";
+import Select from "./selectHomemade/Select";
 import "./Filter.scss";
 
 function Filter({ filters, toogleOpen, toogleAddElem, removeAllElems }) {
@@ -7,7 +7,7 @@ function Filter({ filters, toogleOpen, toogleAddElem, removeAllElems }) {
     <div className="filter">
       <span className="filterBy">FILTER BY</span>
       {filters.map((filter, index) => (
-        <HomemadeSelect
+        <Select
           key={index}
           filter={filter}
           toogleOpen={toogleOpen}

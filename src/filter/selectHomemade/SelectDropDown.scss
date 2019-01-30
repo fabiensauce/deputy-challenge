@@ -1,0 +1,49 @@
+.selectDropDown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  min-width: 150px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+  .topContainer {
+    margin-bottom: 15px;
+    .removeAll {
+      cursor: pointer;
+      float: right;
+    }
+    .removeAll:hover {
+      color: var(--color-main);
+    }
+  }
+  .elem {
+    cursor: pointer;
+    padding: 10px 14px;
+    margin-bottom: 3px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    .check {
+      svg {
+        margin-right: 8px;
+      }
+    }
+    .noCheck {
+      margin-left: 24px;
+    }
+    .nb {
+      margin-left: 5px;
+    }
+  }
+  .elem.checked {
+    color: #d9d9d9;
+    background-color: var(--color-main);
+  }
+  .elem:hover {
+    background-color: #e6e6e6;
+  }
+}
+.selectDropDown.isOpen {
+  display: block;
+}
