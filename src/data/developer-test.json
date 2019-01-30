@@ -33,7 +33,7 @@
     "industry": "Retail",
     "location": "England",
     "company_size": "30-50",
-    "use_case": ["Time & Attendance", "workplace Communication"],
+    "use_case": ["Time & Attendance", "Workplace Communication"],
     "word_count": 381
   },
   {
@@ -59,7 +59,7 @@
       "Employee Scheduling",
       "Time & Attendance",
       "Employee Tasking",
-      "Workplace Communiation",
+      "Workplace Communication",
       "Performance Management"
     ],
     "word_count": 820
