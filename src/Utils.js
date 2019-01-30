@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export function _filterCustomers(customers, filters) {
   let customersFiltered = customers;
   for (let myfilter of filters) {
@@ -67,10 +69,21 @@ export function _constructFilters(customers) {
   }
   return [filterIndustries, filterLocation, filterCompanySize, filterUseCase];
 }
-
 function _addIntoFilter(nameElem, filter) {
   const elem = filter.elems.find(elem => elem.name === nameElem);
   if (!elem) {
     filter.elems.push({ name: nameElem, checked: false, nb: 1 });
   } else elem.nb++;
+}
+
+export function _sortFilters(filters) {
+  return filters.map(filter => {
+    if (filter.name === "company_size") {
+      filter.elems = _.sortBy(filter.elems, [
+        elem => parseInt(elem.name),
+        elem => elem.name.length
+      ]);
+    } else filter.elems = _.sortBy(filter.elems, [elem => elem.name]);
+    return filter;
+  });
 }

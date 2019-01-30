@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import Filter from "./filter/Filter";
 import CustomerList from "./customers/CustomerList";
-import { _constructFilters } from "./Utils";
+import { _constructFilters, _sortFilters } from "./Utils";
 
 class AppContent extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class AppContent extends Component {
 
   componentDidMount() {
     // construct filters from customers data (industry, location, size...)
-    const filters = _constructFilters(this.props.customers);
+    const filters = _sortFilters(_constructFilters(this.props.customers));
     this.setState({ filters });
   }
 
