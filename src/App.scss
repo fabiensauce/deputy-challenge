@@ -26,50 +26,5 @@
       font-weight: bold;
       color: var(--color-main);
     }
-
-    .customerList {
-      text-align: center;
-      margin: auto;
-      max-width: 1000px;
-      .customerStory {
-        display: inline-block;
-        vertical-align: top;
-        width: 240px;
-        height: 300px;
-        padding: 25px;
-        margin: 10px;
-        background-color: #fff;
-        border: 1px solid #e6e6e6;
-        border-radius: 6px;
-        box-shadow: var(--box-shadow);
-        text-align: center;
-        position: relative;
-
-        img {
-          width: 120px;
-          margin-bottom: 15px;
-        }
-        .description {
-          padding: 0 10px;
-          margin-bottom: 15px;
-        }
-        .read {
-          position: absolute;
-          bottom: 40px;
-          left: 105px;
-          .readMore {
-            font-weight: bold;
-            color: #3b88c4;
-            margin-bottom: 8px;
-          }
-          .time {
-            font-size: 11px;
-            svg {
-              margin-right: 3px;
-            }
-          }
-        }
-      }
-    }
   }
 }

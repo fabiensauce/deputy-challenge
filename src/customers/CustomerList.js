@@ -1,6 +1,7 @@
 import React from "react";
 import CustomerStory from "./CustomerStory";
-import { _filterCustomers } from "./Utils";
+import "./CustomerList.scss";
+import { _filterCustomers } from "../Utils";
 
 function CustomerList({ customers, filters }) {
   const customersFiltered = _filterCustomers(customers, filters);

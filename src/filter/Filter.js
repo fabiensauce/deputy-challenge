@@ -1,5 +1,5 @@
 import React from "react";
-import HomemadeSelect from "./HomemadeSelect";
+import HomemadeSelect from "./homemadeSelect/HomemadeSelect";
 import "./Filter.scss";
 
 function Filter({ filters, toogleOpen, toogleAddElem, removeAllElems }) {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import _ from "lodash";
-import Filter from "./Filter";
-import CustomerList from "./CustomerList";
+import Filter from "./filter/Filter";
+import CustomerList from "./customers/CustomerList";
 import { _constructFilters } from "./Utils";
 
 class AppContent extends Component {
