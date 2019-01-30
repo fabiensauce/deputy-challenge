@@ -1,5 +1,4 @@
 export function _filterCustomers(customers, filters) {
-  console.log("fayaaaaaaaaaaaaaaaa");
   let customersFiltered = customers;
   for (let myfilter of filters) {
     if (myfilter.selectedElems.length > 0) {
@@ -19,6 +18,13 @@ export function _filterCustomers(customers, filters) {
     }
   }
   return customersFiltered;
+}
+
+export function _computeReadTime(customers) {
+  return customers.map(customer => {
+    customer.readTime = Math.round(customer.word_count / 200);
+    return customer;
+  });
 }
 
 export function _constructFilters(customers) {

@@ -19,7 +19,7 @@ function HomemadeSelect({ filter, toogleOpen, removeAllElems, toogleAddElem }) {
         <div className="topContainer">
           {filter.selectedElems.length} selected
           <span
-            className="removeAll txtClickEffect"
+            className="removeAll"
             onClick={event => removeAllElems(filter, event)}
           >
             <FontAwesomeIcon icon="sync-alt" />
