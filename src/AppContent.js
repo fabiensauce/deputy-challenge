@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 import Filter from "./Filter";
 import CustomerList from "./CustomerList";
 
@@ -6,25 +7,39 @@ class AppContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filtersView: [],
-      filtersSelected: {
-        Industries: [],
-        Location: [],
-        CompanySize: [],
-        UseCase: []
-      }
+      filters: []
     };
   }
 
   componentDidMount() {
-    const filtersView = this.constructFilters(this.props.customers);
-    this.setState({ filtersView });
+    const filters = this.constructFilters(this.props.customers);
+    this.setState({ filters });
   }
   constructFilters(customers) {
-    const filterIndustries = { title: "Industries", elems: [] };
-    const filterLocation = { title: "Location", elems: [] };
-    const filterCompanySize = { title: "Company Size", elems: [] };
-    const filterUseCase = { title: "Use Case", elems: [] };
+    const filterIndustries = {
+      name: "industry",
+      title: "Industries",
+      elems: [],
+      selectedElems: []
+    };
+    const filterLocation = {
+      name: "location",
+      title: "Location",
+      elems: [],
+      selectedElems: []
+    };
+    const filterCompanySize = {
+      name: "company_size",
+      title: "Company Size",
+      elems: [],
+      selectedElems: []
+    };
+    const filterUseCase = {
+      name: "use_case",
+      title: "Use Case",
+      elems: [],
+      selectedElems: []
+    };
 
     for (let customer of customers) {
       this.addIntoFilter(customer.industry, filterIndustries);
@@ -42,12 +57,31 @@ class AppContent extends Component {
     }
   }
 
+  // arrow fx for binding
+  toogleAddElem = (elemView, filterView) => {
+    // update filters
+    const filter = this.state.filters.find(f => f.name === filterView.name);
+    const elem = filter.elems.find(e => e.name === elemView.name);
+    elem.checked = !elem.checked;
+
+    if (elem.checked) filter.selectedElems.push(elem.name);
+    else _.remove(filter.selectedElems, e => e === elem.name);
+
+    this.setState({ filters: this.state.filters });
+  };
+
   render() {
     return (
       <div className="appContent">
         <div className="titleContent">You're in good company</div>
-        <Filter filters={this.state.filtersView} />
-        <CustomerList customers={this.props.customers} />
+        <Filter
+          filters={this.state.filters}
+          toogleAddElem={this.toogleAddElem}
+        />
+        <CustomerList
+          customers={this.props.customers}
+          filters={this.state.filters}
+        />
       </div>
     );
   }
