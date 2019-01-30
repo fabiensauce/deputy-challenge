@@ -1,0 +1,19 @@
+
+/***************************************************/
+/************ Architecture of the code ************/
+/*************************************************/
+
+The main Class is App.js which contains:
+-> the header
+-> AppContent.js
+
+AppContent.js represents the content and is divided in 3 parts :
+-> the title "You're in good Company"
+-> the filter: ./filter/Filter.js
+-> the customers's list: ./customers/CustomerList
+
+Filter.js is composed by 4 homemade selects: ./selectHomemade/Select.js
+Select.js itself is composed by SelectHead.js and SelectDropDown.js
+(dropdown appears only when click on the head)
+
+CustomerList.js list each CustomerStory.js regarding the filter selection

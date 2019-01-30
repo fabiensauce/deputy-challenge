@@ -13,11 +13,16 @@ class AppContent extends Component {
   }
 
   componentDidMount() {
+    // construct filters from customers data (industry, location, size...)
     const filters = _constructFilters(this.props.customers);
     this.setState({ filters });
   }
 
-  // arrow fx for binding
+  //////////////////////////////////////////////////////////
+  /// CALLBACK FILTER EVENTS - all Arrow fx for binding !
+  /////////////////////////////////////////////////////////
+
+  // a filter element has been (un)checked
   toogleAddElem = (elemView, filterView, event) => {
     event.stopPropagation();
     // update filters
@@ -30,7 +35,10 @@ class AppContent extends Component {
 
     this.setState({ filters: this.state.filters });
   };
-  toogleOpen = (filter, event) => {
+
+  // open/close the dropdown filter part
+  // close other filter is opened
+  toogleOpenFilter = (filter, event) => {
     event.stopPropagation();
     if (filter.isOpen) filter.isOpen = false;
     else {
@@ -40,17 +48,20 @@ class AppContent extends Component {
     this.setState({ filters: this.state.filters });
   };
 
+  // triggered when click anywhere in the appContent
   closeAllFilters = () => {
     this.state.filters.map(filter => (filter.isOpen = false));
     this.setState({ filters: this.state.filters });
   };
 
+  // triggered by refresh btn of a filter
   removeAllElems = (filter, event) => {
     event.stopPropagation();
     filter.elems.map(elem => (elem.checked = false));
     filter.selectedElems = [];
     this.setState({ filters: this.state.filters });
   };
+
   render() {
     return (
       <div className="appContent" onClick={this.closeAllFilters}>
@@ -58,7 +69,7 @@ class AppContent extends Component {
         <Filter
           filters={this.state.filters}
           toogleAddElem={this.toogleAddElem}
-          toogleOpen={this.toogleOpen}
+          toogleOpen={this.toogleOpenFilter}
           removeAllElems={this.removeAllElems}
         />
         <CustomerList
