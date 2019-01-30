@@ -20,25 +20,29 @@ class AppContent extends Component {
       name: "industry",
       title: "Industries",
       elems: [],
-      selectedElems: []
+      selectedElems: [],
+      isOpen: false
     };
     const filterLocation = {
       name: "location",
       title: "Location",
       elems: [],
-      selectedElems: []
+      selectedElems: [],
+      isOpen: false
     };
     const filterCompanySize = {
       name: "company_size",
       title: "Company Size",
       elems: [],
-      selectedElems: []
+      selectedElems: [],
+      isOpen: false
     };
     const filterUseCase = {
       name: "use_case",
       title: "Use Case",
       elems: [],
-      selectedElems: []
+      selectedElems: [],
+      isOpen: false
     };
 
     for (let customer of customers) {
@@ -58,7 +62,8 @@ class AppContent extends Component {
   }
 
   // arrow fx for binding
-  toogleAddElem = (elemView, filterView) => {
+  toogleAddElem = (elemView, filterView, event) => {
+    event.stopPropagation();
     // update filters
     const filter = this.state.filters.find(f => f.name === filterView.name);
     const elem = filter.elems.find(e => e.name === elemView.name);
@@ -69,14 +74,29 @@ class AppContent extends Component {
 
     this.setState({ filters: this.state.filters });
   };
+  toogleOpen = (filter, event) => {
+    event.stopPropagation();
+    if (filter.isOpen) filter.isOpen = false;
+    else {
+      this.state.filters.map(filter => (filter.isOpen = false));
+      filter.isOpen = true;
+    }
+    this.setState({ filters: this.state.filters });
+  };
+
+  closeAllFilters = () => {
+    this.state.filters.map(filter => (filter.isOpen = false));
+    this.setState({ filters: this.state.filters });
+  };
 
   render() {
     return (
-      <div className="appContent">
+      <div className="appContent" onClick={this.closeAllFilters}>
         <div className="titleContent">You're in good company</div>
         <Filter
           filters={this.state.filters}
           toogleAddElem={this.toogleAddElem}
+          toogleOpen={this.toogleOpen}
         />
         <CustomerList
           customers={this.props.customers}

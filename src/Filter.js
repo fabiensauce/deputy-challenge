@@ -12,6 +12,7 @@ class Filter extends Component {
             key={index}
             filter={filter}
             toogleAddElem={this.props.toogleAddElem}
+            toogleOpen={this.props.toogleOpen}
           />
         ))}
       </div>
