@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import Filter from "./Filter";
+import CustomerList from "./CustomerList";
 
 class AppContent extends Component {
   render() {
     return (
       <div className="appContent">
-        {this.props.customers.map((customer, index) => (
-          <div key={index}>{customer.company_name}</div>
-        ))}
+        <div className="titleContent">You're in good company</div>
+        <Filter />
+        <CustomerList customers={this.props.customers} />
       </div>
     );
   }
