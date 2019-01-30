@@ -2,7 +2,9 @@
   .filter {
     text-align: center;
     margin-bottom: 20px;
-
+    .filterBy {
+      margin: 10px;
+    }
     .homemadeSelect {
       display: inline-block;
       margin: 10px;
@@ -17,8 +19,17 @@
         border: 1px solid #bfbfbf;
         border-radius: 4px;
         box-shadow: var(--box-shadow);
+
         .right {
           float: right;
+          .infoNbSelect {
+            font-size: 14px;
+            color: #d9d9d9;
+            background-color: var(--color-main);
+            border-radius: 10px;
+            padding: 2px 6px;
+            margin-right: 8px;
+          }
         }
       }
       .selectName:hover {
@@ -34,9 +45,19 @@
         border: 1px solid #bfbfbf;
         border-radius: 4px;
         box-shadow: var(--box-shadow);
+        .topContainer {
+          margin-bottom: 15px;
+          .removeAll {
+            cursor: pointer;
+            float: right;
+          }
+          .removeAll:hover {
+            color: var(--color-main);
+          }
+        }
         .elem {
           cursor: pointer;
-          padding: 10px 20px;
+          padding: 10px 14px;
           margin-bottom: 3px;
           background-color: #f2f2f2;
           border-radius: 4px;
@@ -47,6 +68,9 @@
           }
           .noCheck {
             margin-left: 24px;
+          }
+          .nb {
+            margin-left: 5px;
           }
         }
         .elem.checked {

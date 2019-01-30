@@ -1,23 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import HomemadeSelect from "./HomemadeSelect";
 import "./Filter.scss";
 
-class Filter extends Component {
-  render() {
-    return (
-      <div className="filter">
-        FILTER BY
-        {this.props.filters.map((filter, index) => (
-          <HomemadeSelect
-            key={index}
-            filter={filter}
-            toogleAddElem={this.props.toogleAddElem}
-            toogleOpen={this.props.toogleOpen}
-          />
-        ))}
-      </div>
-    );
-  }
+function Filter({ filters, toogleOpen, toogleAddElem, removeAllElems }) {
+  return (
+    <div className="filter">
+      <span className="filterBy">FILTER BY</span>
+      {filters.map((filter, index) => (
+        <HomemadeSelect
+          key={index}
+          filter={filter}
+          toogleOpen={toogleOpen}
+          toogleAddElem={toogleAddElem}
+          removeAllElems={removeAllElems}
+        />
+      ))}
+    </div>
+  );
 }
 
 export default Filter;
