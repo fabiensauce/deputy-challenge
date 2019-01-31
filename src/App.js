@@ -13,7 +13,13 @@ class App extends Component {
     const customers = _computeReadTime(data);
     return (
       <div className="app">
-        <div className="header">DEPUTY</div>
+        <div className="header">
+          <img
+            src="https://d21pqaamub0upm.cloudfront.net/dptycms/wp-content/themes/deputy/assets/imagesnew/logo/deputy-stack-white.png"
+            alt="new"
+          />
+          DEPUTY
+        </div>
         <AppContent customers={customers} />
       </div>
     );
