@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SelectHead.scss";
 
-function SelectTitle({ filter, toogleOpen }) {
+const SelectTitle = ({ filter, toogleOpen }) => {
   return (
     <div className="selectHead" onClick={event => toogleOpen(filter, event)}>
       {filter.title}
@@ -14,6 +15,11 @@ function SelectTitle({ filter, toogleOpen }) {
       </span>
     </div>
   );
-}
+};
+
+SelectTitle.propTypes = {
+  filter: PropTypes.object.isRequired,
+  toogleOpen: PropTypes.func.isRequired
+};
 
 export default SelectTitle;

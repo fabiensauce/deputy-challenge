@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Select from "./selectHomemade/Select";
 import "./Filter.scss";
 
@@ -18,5 +19,12 @@ function Filter({ filters, toogleOpen, toogleAddElem, removeAllElems }) {
     </div>
   );
 }
+
+Filter.propTypes = {
+  filters: PropTypes.array.isRequired,
+  toogleOpen: PropTypes.func.isRequired,
+  toogleAddElem: PropTypes.func.isRequired,
+  removeAllElems: PropTypes.func.isRequired
+};
 
 export default Filter;

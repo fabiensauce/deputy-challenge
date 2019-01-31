@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import _ from "lodash";
 import Pagination from "react-js-pagination";
 import "./Pagination.scss";
@@ -118,5 +119,9 @@ class AppContent extends Component {
     );
   }
 }
+
+AppContent.propTypes = {
+  customers: PropTypes.array.isRequired
+};
 
 export default AppContent;

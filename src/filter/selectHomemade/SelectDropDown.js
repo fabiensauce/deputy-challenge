@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SelectDropDown.scss";
 
-function SelectDropDown({ filter, removeAllElems, toogleAddElem }) {
+const SelectDropDown = ({ filter, removeAllElems, toogleAddElem }) => {
   const headerDropDown = (
     <div className="topContainer">
       {filter.selectedElems.length} selected
@@ -39,5 +40,12 @@ function SelectDropDown({ filter, removeAllElems, toogleAddElem }) {
       {listElemToCheck}
     </div>
   );
-}
+};
+
+SelectDropDown.propTypes = {
+  filter: PropTypes.object.isRequired,
+  removeAllElems: PropTypes.func.isRequired,
+  toogleAddElem: PropTypes.func.isRequired
+};
+
 export default SelectDropDown;

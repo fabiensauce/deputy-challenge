@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function CustomerStory({ customer }) {
+const CustomerStory = ({ customer }) => {
   return (
     <div className="customerStory">
       <img src={customer.image_url} alt="new" />
@@ -17,6 +18,10 @@ function CustomerStory({ customer }) {
       </div>
     </div>
   );
-}
+};
+
+CustomerStory.propTypes = {
+  customer: PropTypes.object.isRequired
+};
 
 export default CustomerStory;

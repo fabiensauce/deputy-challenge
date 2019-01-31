@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import CustomerStory from "./CustomerStory";
 import "./CustomerList.scss";
 
-function CustomerList({ customersFiltered, numPage, perPage }) {
+const CustomerList = ({ customersFiltered, numPage, perPage }) => {
   let istart = (numPage - 1) * perPage;
   let iend = numPage * perPage;
   const customersPaginated = customersFiltered.slice(istart, iend);
@@ -14,6 +15,12 @@ function CustomerList({ customersFiltered, numPage, perPage }) {
       ))}
     </div>
   );
-}
+};
+
+CustomerList.propTypes = {
+  customersFiltered: PropTypes.array.isRequired,
+  numPage: PropTypes.number.isRequired,
+  perPage: PropTypes.number.isRequired
+};
 
 export default CustomerList;
